@@ -236,92 +236,110 @@ export default function Home() {
       </section>
 
       {/* You Don't Have to Do This Alone Section */}
-      <section className="grid md:grid-cols-2 px-8 md:px-16 lg:px-24 py-20 gap-12 items-center bg-accent-1">
-        <div className="relative h-[500px] md:h-[600px]">
-          <Image
-            src="/client.jpg"
-            alt="Woman looking up"
-            fill
-            className="object-cover"
-          />
+      <section className="flex flex-col md:flex-row bg-accent-1 min-h-[500px] md:min-h-[550px] lg:min-h-[650px] xl:min-h-[800px]">
+        {/* Image - comes first on mobile, left on desktop, covers full half width and height */}
+        <div className="w-full md:w-1/2 order-1 md:order-1">
+          <div className="relative w-full h-64 md:h-full min-h-[500px] md:min-h-[550px] lg:min-h-[650px] xl:min-h-[800px]">
+            <Image
+              src="/cta-two.jpg"
+              alt="Woman looking up"
+              fill
+              className="object-cover"
+            />
+          </div>
         </div>
-        <div className="space-y-6 text-secondary-text">
-          <h2 className="text-4xl md:text-5xl font-light leading-tight">
-            You don't have to do this all alone.
-          </h2>
-          <p className="leading-relaxed">
-            You are equipped for all things. If you're willing...
-          </p>
-          <ul className="space-y-3">
-            <li className="flex items-start">
-              <span className="mr-3">•</span>
-              <span>Disengage harmful or destructive in organizations</span>
-            </li>
-            <li className="flex items-start">
-              <span className="mr-3">•</span>
-              <span>Tolerate frustrating or making decisions</span>
-            </li>
-            <li className="flex items-start">
-              <span className="mr-3">•</span>
-              <span>Improve your capacity to set boundaries</span>
-            </li>
-            <li className="flex items-start">
-              <span className="mr-3">•</span>
-              <span>Develop increased emotional or compromised</span>
-            </li>
-            <li className="flex items-start">
-              <span className="mr-3">•</span>
-              <span>Live essential areas of being affected</span>
-            </li>
-          </ul>
-          <p className="text-sm leading-relaxed">
-            When genuinely out-of-balance, and work together to navigate the
-            challenges of life and heal through the hardships.
-          </p>
-          <button className="border border-secondary-text text-secondary-text px-6 py-2 text-sm hover:bg-secondary-text hover:text-accent-1 transition-colors mt-4">
-            Learn More
+        {/* Text - comes second on mobile, right on desktop */}
+        <div className="w-full md:w-1/2 px-6 sm:px-8 md:px-16 lg:px-24 pt-12 sm:pt-16 lg:pt-20 pb-0 flex flex-col justify-between order-2 md:order-2">
+          <div className="flex-1 flex items-center">
+            <div className="space-y-6">
+              <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-medium text-primary-text">
+                You don&lsquo;t have to do this all alone.
+              </h2>
+              <p className="text-primary-text leading-relaxed text-sm sm:text-base md:text-lg">
+                You are equipped for all things. If you're willing...
+              </p>
+              <ul className="space-y-3 text-primary-text text-sm sm:text-base">
+                <li className="flex items-start">
+                  <span className="mr-3">•</span>
+                  <span>Disengage harmful or destructive in organizations</span>
+                </li>
+                <li className="flex items-start">
+                  <span className="mr-3">•</span>
+                  <span>Tolerate frustrating or making decisions</span>
+                </li>
+                <li className="flex items-start">
+                  <span className="mr-3">•</span>
+                  <span>Improve your capacity to set boundaries</span>
+                </li>
+                <li className="flex items-start">
+                  <span className="mr-3">•</span>
+                  <span>Develop increased emotional or compromised</span>
+                </li>
+                <li className="flex items-start">
+                  <span className="mr-3">•</span>
+                  <span>Live essential areas of being affected</span>
+                </li>
+              </ul>
+              <p className="text-primary-text text-sm leading-relaxed">
+                When genuinely out-of-balance, and work together to navigate the
+                challenges of life and heal through the hardships.
+              </p>
+            </div>
+          </div>
+          <button className="bg-transparent text-primary-text px-8 py-4 md:py-6 lg:py-8 text-sm font-medium tracking-wider hover:bg-primary-text hover:text-secondary-text transition-all duration-700 -mx-6 sm:-mx-8 md:-mx-16 lg:-mx-24 cursor-pointer border-t-1 mt-12 md:mt-16">
+            WORK WITH ME →
           </button>
         </div>
       </section>
 
       {/* Hi I'm Lilac Section */}
-      <section className="px-8 md:px-16 lg:px-24 py-20 grid md:grid-cols-2 gap-12 items-center">
-        <div className="space-y-6">
-          <h2 className="text-4xl md:text-5xl font-light text-primary-text">
-            Hi, I'm Lilac.
-          </h2>
-          <p className="text-primary-text leading-relaxed">
-            I'm committed to providing my clients and supportive environment
-            where we can partner in change. I integrate theories including CBT,
-            motivation and guidance, creating personalized therapy experience
-            for you during our time together.
-          </p>
-          <button className="border border-primary-text text-primary-text px-6 py-2 text-sm hover:bg-primary-text hover:text-secondary-text transition-colors">
-            About me
-          </button>
-        </div>
-        <div className="relative flex items-center justify-center gap-4">
-          <div className="relative h-80 w-64">
-            <Image
-              src="/client-sub.jpg"
-              alt="Purple lilac flowers"
-              fill
-              className="object-cover rounded-t-full"
-            />
+      <section className="flex flex-col md:flex-row bg-secondary-bg min-h-[600px] md:min-h-[800px] lg:min-h-[900px] xl:min-h-[1000px]">
+        {/* Images - comes first on mobile (order-1), right on desktop (order-2) */}
+        <div className="w-full md:w-1/2 order-1 md:order-2 relative flex items-center justify-center py-12 md:py-16">
+          <div className="relative w-full h-[380px] md:h-full flex items-center justify-center">
+            {/* Arch-shaped image - larger, positioned top */}
+            <div className="absolute top-8 md:top-12 lg:top-16 left-1/2 md:left-1/3 -translate-x-1/2 w-52 h-72 sm:w-60 sm:h-80 md:w-[320px] md:h-[440px] lg:w-[340px] lg:h-[480px] xl:w-[480px] xl:h-[680px] z-10">
+              <Image
+                src="/client.jpg"
+                alt="Purple lilac flowers"
+                fill
+                className="object-cover rounded-t-full"
+              />
+            </div>
+            {/* Circular image - smaller, positioned bottom-right, overlapping */}
+            <div className="absolute bottom-0.5 max-sm:right-20  md:bottom-32 lg:bottom-28 xl:bottom-16 right-36 md:right-20 lg:right-38 xl:right-40  w-32 h-32 max-sm:w-40 max-sm:h-40 sm:w-44 sm:h-44 md:w-48 md:h-48 lg:w-56 lg:h-56 xl:w-90 xl:h-90 z-20">
+              <Image
+                src="/client-sub.jpg"
+                alt="White flowers"
+                fill
+                className="object-cover rounded-full"
+              />
+            </div>
           </div>
-          <div className="relative h-64 w-64 mt-24">
-            <Image
-              src="/hero.jpg"
-              alt="White flowers"
-              fill
-              className="object-cover rounded-full"
-            />
+        </div>
+        {/* Text - comes second on mobile (order-2), left on desktop (order-1) */}
+        <div className="w-full md:w-1/2 px-6 sm:px-8 md:pl-16 md:pr-8 lg:pl-24 lg:pr-12 py-12 sm:py-16 lg:py-20 flex flex-col justify-center order-2 md:order-1">
+          <div className="space-y-6 md:space-y-8">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-medium text-primary-text">
+              Hi, I'm Lilac.
+            </h2>
+            <p className="text-primary-text leading-relaxed text-sm sm:text-base md:text-lg">
+              I'm committed to providing a safe and supportive environment where
+              we can explore your thoughts, feelings, and behaviors. With
+              empathy and guidance, we'll work together to navigate the
+              challenges life throws your way.
+            </p>
+          </div>
+          <div className="flex justify-center mt-8 md:mt-12 mt-16">
+            <button className="border border-primary-text text-primary-text px-10 py-3 text-sm font-medium tracking-wider hover:bg-primary-text hover:text-primary-bg transition-all duration-700 cursor-pointer">
+              LET'S CHAT →
+            </button>
           </div>
         </div>
       </section>
 
       {/* FAQs Section */}
-      <section className="px-8 md:px-16 lg:px-24 py-20 bg-secondary-bg">
+      <section className="px-8 md:px-16 lg:px-24 py-20 ">
         <div className="grid md:grid-cols-2 gap-12 items-start">
           <div className="relative h-[500px] rounded-t-full overflow-hidden">
             <Image
@@ -384,7 +402,7 @@ export default function Home() {
       </section>
 
       {/* My Professional Background Section */}
-      <section className="px-8 md:px-16 lg:px-24 py-20">
+      <section className="px-8 md:px-16 lg:px-24 py-20 bg-secondary-bg">
         <h2 className="text-4xl md:text-5xl font-light text-primary-text text-center mb-12">
           My Professional Background
         </h2>
