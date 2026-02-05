@@ -35,7 +35,7 @@ export default function Home() {
   return (
     <div className="min-h-screen bg-primary-bg overflow-x-hidden">
       {/* Navbar */}
-      <nav className="flex justify-between items-center px-6 sm:px-16 lg:px-24 py-6 bg-primary-bg relative">
+      <nav className="fixed top-0 left-0 right-0 z-50 flex justify-between items-center px-6 sm:px-16 lg:px-24 py-6 bg-primary-bg">
         {/* Mobile Menu Button */}
         <button
           onClick={handleMenuToggle}
@@ -109,7 +109,7 @@ export default function Home() {
       )}
 
       {/* Hero Section */}
-      <section className="flex flex-col items-center lg:grid lg:grid-cols-2 px-6 sm:px-16 lg:px-24 py-8 sm:py-12 lg:py-16 gap-8 lg:gap-12 max-w-full">
+      <section className="flex flex-col items-center lg:grid lg:grid-cols-2 px-6 sm:px-16 lg:px-24 pt-28 sm:pt-32 lg:pt-36 pb-8 sm:pb-12 lg:pb-16 gap-8 lg:gap-12 max-w-full">
         <div className="relative w-full max-w-[280px] sm:max-w-[350px] lg:max-w-[680px] aspect-[5/7] overflow-hidden rounded-t-full mx-auto lg:mx-0 flex-shrink-0">
           <Image
             src="/hero.jpg"
@@ -137,46 +137,49 @@ export default function Home() {
       </section>
 
       {/* Live a Fulfilling Life Section */}
-      <section className="px-8 md:px-16 lg:px-24 py-20 grid md:grid-cols-2 gap-12 items-center">
-        <div className="space-y-6">
-          <h2 className="text-4xl md:text-5xl font-light text-primary-text">
-            Live a fulfilling life.
-          </h2>
-          <p className="text-primary-text leading-relaxed">
-            Life has had challenges—especially since you&lsquo;re living it
-            fearlessly and unapologetically. And sometimes you feel lonely,
-            hopeless, or anxious about your relationships, work, body, and sense
-            of purpose. But there&lsquo;s more to life, and there&lsquo;s hope
-            for the future.
-          </p>
+      <section className="flex flex-col md:flex-row bg-secondary-bg min-h-[500px] md:min-h-[550px] lg:min-h-[650px] xl:min-h-[800px]">
+        {/* Text - comes second on mobile, left on desktop */}
+        <div className="w-full md:w-1/2 px-6 sm:px-8 md:px-16 lg:px-24 pt-12 sm:pt-16 lg:pt-20 pb-0 flex flex-col justify-between order-2 md:order-1">
+          <div className="flex-1 flex items-center">
+            <div className="space-y-6">
+              <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-medium text-primary-text whitespace-nowrap">
+                Live a fulfilling life.
+              </h2>
+              <p className="text-primary-text leading-relaxed text-sm sm:text-base md:text-lg">
+                Life has had challenges—especially since you&lsquo;re living it
+                fearlessly and unapologetically. And sometimes you feel lonely,
+                hopeless, or anxious about your relationships, work, body, and
+                sense of purpose. But there&lsquo;s more to life, and
+                there&lsquo;s hope for the future.
+              </p>
+            </div>
+          </div>
+          <button className="bg-transparent text-primary-text px-8 py-4 md:py-6 lg:py-8 text-sm font-medium tracking-wider hover:bg-primary-text hover:text-secondary-text transition-all duration-700 -mx-6 sm:-mx-8 md:-mx-16 lg:-mx-24 cursor-pointer border-t-1 mt-12 md:mt-16">
+            GET IN TOUCH →
+          </button>
         </div>
-        <div className="grid grid-cols-2 gap-4">
-          <div className="relative h-64">
+        {/* Image - comes first on mobile, right on desktop, covers full half width and height */}
+        <div className="w-full md:w-1/2 order-1 md:order-2">
+          <div className="relative w-full h-64 md:h-full min-h-[500px] md:min-h-[550px] lg:min-h-[650px] xl:min-h-[800px]">
             <Image
               src="/cta-one.jpg"
               alt="Coffee and flowers"
               fill
               className="object-cover"
-            />
-          </div>
-          <div className="relative h-64 mt-12">
-            <Image
-              src="/cta-two.jpg"
-              alt="Lifestyle flat lay"
-              fill
-              className="object-cover"
+              priority
             />
           </div>
         </div>
       </section>
 
       {/* My Specialties Section */}
-      <section className="px-8 md:px-16 lg:px-24 py-20 bg-secondary-bg">
-        <h2 className="text-4xl md:text-5xl font-light text-primary-text text-center mb-16">
+      <section className="px-6 sm:px-8 md:px-16 lg:px-24 py-20 sm:py-24 lg:py-28">
+        <h2 className="text-4xl sm:text-5xl md:text-6xl font-medium text-primary-text text-center mb-12 sm:mb-16">
           My Specialties
         </h2>
-        <div className="grid md:grid-cols-3 gap-8">
-          <div className="space-y-4">
+        <div className="flex flex-wrap justify-start gap-6 md:gap-6 lg:gap-8">
+          {/* Specialty 1 */}
+          <div className="w-full sm:w-[calc(50%-0.75rem)] md:w-[calc(33.333%-1rem)] lg:w-[calc(33.333%-1.34rem)] flex flex-col space-y-6 bg-secondary-bg p-6 md:p-8 lg:p-10 border border-primary-text">
             <h3 className="text-lg font-medium text-primary-text">
               Self-Esteem
             </h3>
@@ -184,7 +187,7 @@ export default function Home() {
               Gain confidence as you learn to embrace and love yourself for who
               you are and what you have to offer.
             </p>
-            <div className="relative h-64 w-64 mx-auto">
+            <div className="relative w-full aspect-square max-w-[200px] sm:max-w-[250px] md:max-w-xs mx-auto mt-auto">
               <Image
                 src="/speciality-one.jpg"
                 alt="Woman by window"
@@ -193,7 +196,9 @@ export default function Home() {
               />
             </div>
           </div>
-          <div className="space-y-4">
+
+          {/* Specialty 2 */}
+          <div className="w-full sm:w-[calc(50%-0.75rem)] md:w-[calc(33.333%-1rem)] lg:w-[calc(33.333%-1.34rem)] flex flex-col space-y-6 bg-secondary-bg p-6 md:p-8 lg:p-10 border border-primary-text">
             <h3 className="text-lg font-medium text-primary-text">
               Relationships
             </h3>
@@ -201,7 +206,7 @@ export default function Home() {
               Foster healthy relationships that help you feel supported and
               capable in your everyday life.
             </p>
-            <div className="relative h-64 w-64 mx-auto">
+            <div className="relative w-full aspect-square max-w-[200px] sm:max-w-[250px] md:max-w-xs mx-auto mt-auto">
               <Image
                 src="/speciality-two.jpeg"
                 alt="Person with plants"
@@ -210,13 +215,15 @@ export default function Home() {
               />
             </div>
           </div>
-          <div className="space-y-4">
+
+          {/* Specialty 3 */}
+          <div className="w-full sm:w-[calc(50%-0.75rem)] md:w-[calc(33.333%-1rem)] lg:w-[calc(33.333%-1.34rem)] flex flex-col space-y-6 bg-secondary-bg p-6 md:p-8 lg:p-10 border border-primary-text">
             <h3 className="text-lg font-medium text-primary-text">Burnout</h3>
             <p className="text-sm text-primary-text leading-relaxed">
               Discover ways to cope with stress and find balance in your work
               and life responsibilities.
             </p>
-            <div className="relative h-64 w-64 mx-auto">
+            <div className="relative w-full aspect-square max-w-[200px] sm:max-w-[250px] md:max-w-xs mx-auto mt-auto">
               <Image
                 src="/speciality-three.jpg"
                 alt="Person working"
