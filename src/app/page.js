@@ -1,6 +1,7 @@
 "use client";
 import { useState } from "react";
 import Image from "next/image";
+import { Plus, Minus, ArrowRight } from "lucide-react";
 
 export default function Home() {
   const [openFAQ, setOpenFAQ] = useState(null);
@@ -130,8 +131,8 @@ export default function Home() {
               Therapy for Adults in Minneapolis, MN
             </span>
           </p>
-          <button className="border border-primary-text text-primary-text px-6 py-2.5 mt-4 text-sm tracking-wide hover:bg-primary-text hover:text-secondary-text transition-colors duration-700 font-medium cursor-pointer">
-            CONNECT WITH ME
+          <button className="border border-primary-text text-primary-text px-6 py-2.5 mt-4 text-sm tracking-wide hover:bg-primary-text hover:text-secondary-text transition-colors duration-700 font-medium cursor-pointer flex items-center gap-2 mx-auto lg:mx-0">
+            CONNECT WITH ME <ArrowRight className="w-4 h-4" />
           </button>
         </div>
       </section>
@@ -154,8 +155,8 @@ export default function Home() {
               </p>
             </div>
           </div>
-          <button className="bg-transparent text-primary-text px-8 py-4 md:py-6 lg:py-8 text-sm font-medium tracking-wider hover:bg-primary-text hover:text-secondary-text transition-all duration-700 -mx-6 sm:-mx-8 md:-mx-16 lg:-mx-24 cursor-pointer border-t-1 mt-12 md:mt-16">
-            GET IN TOUCH →
+          <button className="bg-transparent text-primary-text px-8 py-4 md:py-6 lg:py-8 text-sm font-medium tracking-wider hover:bg-primary-text hover:text-secondary-text transition-all duration-700 -mx-6 sm:-mx-8 md:-mx-16 lg:-mx-24 cursor-pointer border-t-1 mt-12 md:mt-16 flex items-center justify-center gap-2">
+            GET IN TOUCH <ArrowRight className="w-4 h-4" />
           </button>
         </div>
         {/* Image - comes first on mobile, right on desktop, covers full half width and height */}
@@ -286,8 +287,8 @@ export default function Home() {
               </p>
             </div>
           </div>
-          <button className="bg-transparent text-primary-text px-8 py-4 md:py-6 lg:py-8 text-sm font-medium tracking-wider hover:bg-primary-text hover:text-secondary-text transition-all duration-700 -mx-6 sm:-mx-8 md:-mx-16 lg:-mx-24 cursor-pointer border-t-1 mt-12 md:mt-16">
-            WORK WITH ME →
+          <button className="bg-transparent text-primary-text px-8 py-4 md:py-6 lg:py-8 text-sm font-medium tracking-wider hover:bg-primary-text hover:text-secondary-text transition-all duration-700 -mx-6 sm:-mx-8 md:-mx-16 lg:-mx-24 cursor-pointer border-t-1 mt-12 md:mt-16 flex items-center justify-center gap-2">
+            WORK WITH ME <ArrowRight className="w-4 h-4" />
           </button>
         </div>
       </section>
@@ -331,17 +332,18 @@ export default function Home() {
             </p>
           </div>
           <div className="flex justify-center mt-8 md:mt-12 mt-16">
-            <button className="border border-primary-text text-primary-text px-10 py-3 text-sm font-medium tracking-wider hover:bg-primary-text hover:text-primary-bg transition-all duration-700 cursor-pointer">
-              LET'S CHAT →
+            <button className="border border-primary-text text-primary-text px-10 py-3 text-sm font-medium tracking-wider hover:bg-primary-text hover:text-primary-bg transition-all duration-700 cursor-pointer flex items-center gap-2">
+              LET'S CHAT <ArrowRight className="w-4 h-4" />
             </button>
           </div>
         </div>
       </section>
 
       {/* FAQs Section */}
-      <section className="px-8 md:px-16 lg:px-24 py-20 ">
-        <div className="grid md:grid-cols-2 gap-12 items-start">
-          <div className="relative h-[500px] rounded-t-full overflow-hidden">
+      <section className="flex flex-col md:flex-row bg-primary-bg min-h-[600px] md:min-h-[700px] lg:min-h-[850px] xl:min-h-[950px]">
+        {/* Image - left side */}
+        <div className="w-full md:w-1/2 order-1 md:order-1 flex items-center justify-center px-6 sm:px-8 md:pl-16 md:pr-4 lg:pl-24 lg:pr-8 py-12 md:py-16 lg:py-20">
+          <div className="relative w-full max-w-[320px] sm:max-w-[380px] md:max-w-[450px] lg:max-w-[550px] xl:max-w-[650px] aspect-[5/7] overflow-hidden rounded-t-full">
             <Image
               src="/faq.jpg"
               alt="White flowers"
@@ -349,52 +351,97 @@ export default function Home() {
               className="object-cover"
             />
           </div>
-          <div className="space-y-6">
-            <h2 className="text-4xl md:text-5xl font-light text-primary-text mb-8">
+        </div>
+
+        {/* FAQ Content - right side */}
+        <div className="w-full md:w-1/2 px-6 sm:px-8 md:pl-4 md:pr-16 lg:pl-8 lg:pr-24 py-12 sm:py-16 lg:py-20 flex flex-col justify-center order-2 md:order-2">
+          <div className="space-y-8 md:space-y-10 lg:space-y-12">
+            <h2 className="text-4xl sm:text-5xl md:text-5xl lg:text-6xl font-medium text-primary-text">
               FAQs
             </h2>
-            <div className="space-y-4">
-              <div className="border-b border-primary-text pb-4">
+            <div className="space-y-0">
+              {/* FAQ 1 */}
+              <div className="border-b border-primary-text">
                 <button
                   onClick={() => toggleFAQ(0)}
-                  className="w-full text-left flex justify-between items-center text-lg text-primary-text"
+                  className="w-full text-left flex items-center gap-4 py-3 md:py-4 text-3xl md:text-3xl lg:text-4xl xl:text-5xl border-t text-primary-text transition-opacity cursor-pointer"
                 >
+                  <span className="transition-all duration-300 flex-shrink-0">
+                    {openFAQ === 0 ? (
+                      <Minus className="w-6 h-6 md:w-7 md:h-7" />
+                    ) : (
+                      <Plus className="w-6 h-6 md:w-7 md:h-7" />
+                    )}
+                  </span>
                   <span>Do you take insurance?</span>
-                  <span className="text-2xl">{openFAQ === 0 ? "−" : "+"}</span>
                 </button>
-                {openFAQ === 0 && (
-                  <p className="mt-4 text-primary-text text-sm">
+                <div
+                  className={`overflow-hidden transition-all duration-500 ease-in-out ${
+                    openFAQ === 0
+                      ? "max-h-96 opacity-100 mb-4"
+                      : "max-h-0 opacity-0"
+                  }`}
+                >
+                  <p className="text-primary-text text-sm md:text-base leading-relaxed">
                     Information about insurance coverage and payment options.
                   </p>
-                )}
+                </div>
               </div>
-              <div className="border-b border-primary-text pb-4">
+
+              {/* FAQ 2 */}
+              <div className="border-b border-primary-text">
                 <button
                   onClick={() => toggleFAQ(1)}
-                  className="w-full text-left flex justify-between items-center text-lg text-primary-text"
+                  className="w-full text-left flex items-center gap-4 py-3 md:py-4 text-3xl md:text-3xl lg:text-4xl xl:text-5xl text-primary-text transition-opacity cursor-pointer"
                 >
+                  <span className="transition-all duration-300 flex-shrink-0">
+                    {openFAQ === 1 ? (
+                      <Minus className="w-6 h-6 md:w-7 md:h-7" />
+                    ) : (
+                      <Plus className="w-6 h-6 md:w-7 md:h-7" />
+                    )}
+                  </span>
                   <span>What are your rates?</span>
-                  <span className="text-2xl">{openFAQ === 1 ? "−" : "+"}</span>
                 </button>
-                {openFAQ === 1 && (
-                  <p className="mt-4 text-primary-text text-sm">
+                <div
+                  className={`overflow-hidden transition-all duration-500 ease-in-out ${
+                    openFAQ === 1
+                      ? "max-h-96 opacity-100 mb-4"
+                      : "max-h-0 opacity-0"
+                  }`}
+                >
+                  <p className="text-primary-text text-sm md:text-base leading-relaxed">
                     Information about session rates and pricing.
                   </p>
-                )}
+                </div>
               </div>
-              <div className="border-b border-primary-text pb-4">
+
+              {/* FAQ 3 */}
+              <div className="border-b border-primary-text">
                 <button
                   onClick={() => toggleFAQ(2)}
-                  className="w-full text-left flex justify-between items-center text-lg text-primary-text"
+                  className="w-full text-left flex items-center gap-4 py-3 md:py-4 text-3xl md:text-3xl lg:text-4xl xl:text-5xl text-primary-text transition-opacity cursor-pointer"
                 >
+                  <span className="transition-all duration-300 flex-shrink-0">
+                    {openFAQ === 2 ? (
+                      <Minus className="w-6 h-6 md:w-7 md:h-7" />
+                    ) : (
+                      <Plus className="w-6 h-6 md:w-7 md:h-7" />
+                    )}
+                  </span>
                   <span>Do you have any openings?</span>
-                  <span className="text-2xl">{openFAQ === 2 ? "−" : "+"}</span>
                 </button>
-                {openFAQ === 2 && (
-                  <p className="mt-4 text-primary-text text-sm">
+                <div
+                  className={`overflow-hidden transition-all duration-500 ease-in-out ${
+                    openFAQ === 2
+                      ? "max-h-96 opacity-100 mb-4"
+                      : "max-h-0 opacity-0"
+                  }`}
+                >
+                  <p className="text-primary-text text-sm md:text-base leading-relaxed">
                     Information about current availability and scheduling.
                   </p>
-                )}
+                </div>
               </div>
             </div>
           </div>
