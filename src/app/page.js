@@ -116,6 +116,7 @@ export default function Home() {
             src="/hero.jpg"
             alt="Purple flowers"
             fill
+            sizes="(max-width: 640px) 280px, (max-width: 1024px) 350px, 680px"
             className="object-cover object-[center_20%]"
             priority
           />
@@ -166,6 +167,7 @@ export default function Home() {
               src="/cta-one.jpg"
               alt="Coffee and flowers"
               fill
+              sizes="(max-width: 768px) 100vw, 50vw"
               className="object-cover"
               priority
             />
@@ -193,6 +195,7 @@ export default function Home() {
                 src="/speciality-one.jpg"
                 alt="Woman by window"
                 fill
+                sizes="(max-width: 640px) 200px, (max-width: 768px) 250px, 300px"
                 className="object-cover rounded-full"
               />
             </div>
@@ -212,6 +215,7 @@ export default function Home() {
                 src="/speciality-two.jpeg"
                 alt="Person with plants"
                 fill
+                sizes="(max-width: 640px) 200px, (max-width: 768px) 250px, 300px"
                 className="object-cover rounded-full"
               />
             </div>
@@ -229,6 +233,7 @@ export default function Home() {
                 src="/speciality-three.jpg"
                 alt="Person working"
                 fill
+                sizes="(max-width: 640px) 200px, (max-width: 768px) 250px, 300px"
                 className="object-cover rounded-full"
               />
             </div>
@@ -245,6 +250,7 @@ export default function Home() {
               src="/cta-two.jpg"
               alt="Woman looking up"
               fill
+              sizes="(max-width: 768px) 100vw, 50vw"
               className="object-cover"
             />
           </div>
@@ -304,6 +310,7 @@ export default function Home() {
                 src="/client.jpg"
                 alt="Purple lilac flowers"
                 fill
+                sizes="(max-width: 640px) 208px, (max-width: 768px) 240px, (max-width: 1024px) 320px, (max-width: 1280px) 340px, 480px"
                 className="object-cover rounded-t-full"
               />
             </div>
@@ -313,6 +320,7 @@ export default function Home() {
                 src="/client-sub.jpg"
                 alt="White flowers"
                 fill
+                sizes="(max-width: 640px) 160px, (max-width: 768px) 176px, (max-width: 1024px) 192px, (max-width: 1280px) 224px, 360px"
                 className="object-cover rounded-full"
               />
             </div>
@@ -348,6 +356,7 @@ export default function Home() {
               src="/faq.jpg"
               alt="White flowers"
               fill
+              sizes="(max-width: 640px) 320px, (max-width: 768px) 380px, (max-width: 1024px) 450px, (max-width: 1280px) 550px, 650px"
               className="object-cover"
             />
           </div>
@@ -449,123 +458,194 @@ export default function Home() {
       </section>
 
       {/* My Professional Background Section */}
-      <section className="px-8 md:px-16 lg:px-24 py-20 bg-secondary-bg">
-        <h2 className="text-4xl md:text-5xl font-light text-primary-text text-center mb-12">
-          My Professional Background
-        </h2>
-        <div className="max-w-2xl mx-auto space-y-4">
-          <div className="border-b border-primary-text pb-4">
-            <button
-              onClick={() => toggleBackground(0)}
-              className="w-full text-left flex justify-between items-center text-lg text-primary-text"
-            >
-              <span>Education</span>
-              <span className="text-2xl">
-                {openBackground === 0 ? "−" : "+"}
-              </span>
-            </button>
-            {openBackground === 0 && (
-              <p className="mt-4 text-primary-text text-sm">
-                Details about educational background and qualifications.
-              </p>
-            )}
-          </div>
-          <div className="border-b border-primary-text pb-4">
-            <button
-              onClick={() => toggleBackground(1)}
-              className="w-full text-left flex justify-between items-center text-lg text-primary-text"
-            >
-              <span>Licensure</span>
-              <span className="text-2xl">
-                {openBackground === 1 ? "−" : "+"}
-              </span>
-            </button>
-            {openBackground === 1 && (
-              <p className="mt-4 text-primary-text text-sm">
-                Information about professional licensure and certifications.
-              </p>
-            )}
-          </div>
-          <div className="border-b border-primary-text pb-4">
-            <button
-              onClick={() => toggleBackground(2)}
-              className="w-full text-left flex justify-between items-center text-lg text-primary-text"
-            >
-              <span>Professional Affiliations</span>
-              <span className="text-2xl">
-                {openBackground === 2 ? "−" : "+"}
-              </span>
-            </button>
-            {openBackground === 2 && (
-              <p className="mt-4 text-primary-text text-sm">
-                Details about professional memberships and affiliations.
-              </p>
-            )}
+      <section className="bg-secondary-bg px-6 sm:px-8 md:px-16 lg:px-24 pt-20 sm:pt-24 lg:pt-28 pb-6 sm:pb-10 lg:pb-14 min-h-[450px] md:min-h-[550px]">
+        <div className="max-w-3xl mx-auto">
+          <div className="space-y-12 md:space-y-14 lg:space-y-16">
+            <h2 className="text-3xl sm:text-4xl md:text-4xl lg:text-5xl font-medium text-primary-text text-center">
+              My Professional Background
+            </h2>
+            <div className="space-y-0">
+              {/* Background 1 */}
+              <div className="border-b border-primary-text">
+                <button
+                  onClick={() => toggleBackground(0)}
+                  className="w-full text-left flex justify-between items-center gap-4 py-4 md:py-5 text-base sm:text-lg md:text-xl border-t text-primary-text transition-opacity cursor-pointer"
+                >
+                  <span>Education</span>
+                  <span className="transition-all duration-300 flex-shrink-0">
+                    {openBackground === 0 ? (
+                      <Minus className="w-5 h-5 md:w-6 md:h-6" />
+                    ) : (
+                      <Plus className="w-5 h-5 md:w-6 md:h-6" />
+                    )}
+                  </span>
+                </button>
+                <div
+                  className={`overflow-hidden transition-all duration-500 ease-in-out ${
+                    openBackground === 0
+                      ? "max-h-96 opacity-100 mb-4"
+                      : "max-h-0 opacity-0"
+                  }`}
+                >
+                  <p className="text-primary-text text-sm md:text-base leading-relaxed">
+                    Details about educational background and qualifications.
+                  </p>
+                </div>
+              </div>
+
+              {/* Background 2 */}
+              <div className="border-b border-primary-text">
+                <button
+                  onClick={() => toggleBackground(1)}
+                  className="w-full text-left flex justify-between items-center gap-4 py-4 md:py-5 text-base sm:text-lg md:text-xl text-primary-text transition-opacity cursor-pointer"
+                >
+                  <span>Licensure</span>
+                  <span className="transition-all duration-300 flex-shrink-0">
+                    {openBackground === 1 ? (
+                      <Minus className="w-5 h-5 md:w-6 md:h-6" />
+                    ) : (
+                      <Plus className="w-5 h-5 md:w-6 md:h-6" />
+                    )}
+                  </span>
+                </button>
+                <div
+                  className={`overflow-hidden transition-all duration-500 ease-in-out ${
+                    openBackground === 1
+                      ? "max-h-96 opacity-100 mb-4"
+                      : "max-h-0 opacity-0"
+                  }`}
+                >
+                  <p className="text-primary-text text-sm md:text-base leading-relaxed">
+                    Information about professional licensure and certifications.
+                  </p>
+                </div>
+              </div>
+
+              {/* Background 3 */}
+              <div className="border-b border-primary-text">
+                <button
+                  onClick={() => toggleBackground(2)}
+                  className="w-full text-left flex justify-between items-center gap-4 py-4 md:py-5 text-base sm:text-lg md:text-xl text-primary-text transition-opacity cursor-pointer"
+                >
+                  <span>Professional Affiliations</span>
+                  <span className="transition-all duration-300 flex-shrink-0">
+                    {openBackground === 2 ? (
+                      <Minus className="w-5 h-5 md:w-6 md:h-6" />
+                    ) : (
+                      <Plus className="w-5 h-5 md:w-6 md:h-6" />
+                    )}
+                  </span>
+                </button>
+                <div
+                  className={`overflow-hidden transition-all duration-500 ease-in-out ${
+                    openBackground === 2
+                      ? "max-h-96 opacity-100 mb-4"
+                      : "max-h-0 opacity-0"
+                  }`}
+                >
+                  <p className="text-primary-text text-sm md:text-base leading-relaxed">
+                    Details about professional memberships and affiliations.
+                  </p>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </section>
 
       {/* Get Started Section */}
-      <section className="px-8 md:px-16 lg:px-24 py-20 bg-accent-2 text-secondary-text">
-        <div className="max-w-2xl mx-auto text-center space-y-6">
-          <h2 className="text-4xl md:text-5xl font-light">
+      <section className="px-8 md:px-16 lg:px-24 py-24 md:py-32 lg:py-40 bg-accent-2 text-secondary-text">
+        <div className="max-w-2xl mx-auto text-center space-y-8">
+          <h2 className="text-4xl md:text-5xl font-medium">
             Get started today.
           </h2>
-          <p className="text-sm">
+          <p className="text-xl mt-8">
             Whether this may be your first-ever therapist or transition.
             Sometimes just taking the first step can be the hardest. Reach out
             for a free 15-minute phone consultation. Or schedule an appointment.
           </p>
-          <form className="space-y-4 mt-8">
-            <input
-              type="text"
-              placeholder="Name"
-              className="w-full bg-transparent border-b border-secondary-text px-2 py-3 text-secondary-text placeholder-secondary-text/70 focus:outline-none"
-            />
-            <input
-              type="email"
-              placeholder="Email"
-              className="w-full bg-transparent border-b border-secondary-text px-2 py-3 text-secondary-text placeholder-secondary-text/70 focus:outline-none"
-            />
-            <textarea
-              placeholder="Message"
-              rows="4"
-              className="w-full bg-transparent border-b border-secondary-text px-2 py-3 text-secondary-text placeholder-secondary-text/70 focus:outline-none resize-none"
-            ></textarea>
-            <button className="border border-secondary-text text-secondary-text px-8 py-2 text-sm hover:bg-secondary-text hover:text-accent-2 transition-colors mt-4">
-              Submit
-            </button>
-          </form>
+          <button className="border border-secondary-text hover:text-accent-2 px-6 py-2.5 mt-28 text-sm tracking-wide hover:bg-secondary-text text-secondary-text transition-colors duration-700 font-medium cursor-pointer flex items-center gap-2 mx-auto">
+            GET IN TOUCH <ArrowRight className="w-4 h-4" />
+          </button>
+        </div>
+      </section>
+
+      {/* Footer Top Section */}
+      <section className="px-16 md:px-16 lg:px-16 pt-12 md:pt-16 pb-24 md:pb-28 bg-primary-bg">
+        <div className="max-w-8xl mx-auto">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-16 lg:gap-24 text-base text-primary-text">
+            <div className="text-center md:text-left">
+              <h4 className="text-2xl sm:text-3xl lg:text-5xl font-medium mb-10">
+                Lilac Template
+              </h4>
+              <p className="mb-1 text-xl">123 Example Road</p>
+              <p className="mb-8 text-xl">Minneapolis, MN</p>
+              <p className="underline mb-1 text-xl">email@example.com</p>
+              <p className="underline text-xl">(555) 555-5555</p>
+            </div>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-16 lg:gap-24">
+              <div className="text-center md:text-right">
+                <h4 className="text-2xl sm:text-3xl lg:text-4xl font-medium mb-10">
+                  Hours
+                </h4>
+                <p className="mb-1 text-xl">Monday – Friday</p>
+                <p className="text-xl">10am – 6pm</p>
+              </div>
+              <div className="text-center md:text-right">
+                <h4 className="text-2xl sm:text-3xl lg:text-4xl font-medium mb-10">
+                  Find
+                </h4>
+                <p className="underline mb-1 text-xl">Home</p>
+                <p className="underline mb-1 text-xl">Contact</p>
+                <p className="underline text-xl">Blog</p>
+              </div>
+            </div>
+          </div>
         </div>
       </section>
 
       {/* Footer Bottom */}
-      <footer className="px-8 md:px-16 lg:px-24 py-12 bg-secondary-bg">
-        <div className="max-w-4xl mx-auto">
-          <div className="grid md:grid-cols-3 gap-8 mb-8 text-sm text-primary-text">
-            <div>
-              <h4 className="font-medium mb-2">Lilac Template</h4>
-              <p>123 Example Street</p>
-              <p>Minneapolis, MN 55414</p>
-              <p className="mt-2">(555) 123-4567</p>
-            </div>
-            <div>
-              <h4 className="font-medium mb-2">Hours</h4>
-              <p>Monday - Friday</p>
-              <p>9AM - 5PM</p>
-            </div>
-            <div>
-              <h4 className="font-medium mb-2">Find</h4>
-              <p>LinkedIn</p>
-              <p>Instagram</p>
-            </div>
-          </div>
-          <div className="border-t border-primary-text pt-8 text-xs text-primary-text text-center space-y-2">
-            <p>
-              Privacy & Cookie Policy | Terms Of Service | Shipping Policy |
-              Exchange
+      <footer className="px-8 md:px-16 lg:px-24 md:pt-20 pt-4 pb-10 bg-secondary-bg">
+        <div className="max-w-7xl mx-auto">
+          <div className="text-md  text-center space-y-4">
+            <p className="space-x-2">
+              <a
+                href="#"
+                className="underline hover:opacity-70 whitespace-nowrap"
+              >
+                Privacy & Cookies Policy
+              </a>
+              <span> </span>
+              <a
+                href="#"
+                className="underline hover:opacity-70 whitespace-nowrap"
+              >
+                Good Faith Estimate
+              </a>
+              <span> </span>
+              <a
+                href="#"
+                className="underline hover:opacity-70 whitespace-nowrap"
+              >
+                Website Terms & Conditions
+              </a>
+              <span> </span>
+              <a
+                href="#"
+                className="underline hover:opacity-70 whitespace-nowrap"
+              >
+                Disclaimer
+              </a>
             </p>
-            <p>© Lilac Template 2020</p>
+            <p className="text-primary-text">
+              Website Template Credits:{" "}
+              <a href="#" className="underline hover:opacity-70 text-black">
+                Go Bloom Creative
+              </a>
+            </p>
+            <p className="md:pt-14 text-primary-text">
+              All Rights Reserved © 2026 Your Business Name Here, LLC.
+            </p>
           </div>
         </div>
       </footer>
