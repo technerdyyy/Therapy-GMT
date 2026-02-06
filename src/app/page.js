@@ -1,5 +1,5 @@
 "use client";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Image from "next/image";
 import { Plus, Minus, ArrowRight } from "lucide-react";
 
@@ -8,6 +8,20 @@ export default function Home() {
   const [openBackground, setOpenBackground] = useState(null);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [isMenuClosing, setIsMenuClosing] = useState(false);
+  const [currentOfficeImage, setCurrentOfficeImage] = useState(0);
+
+  const officeImages = [
+    { src: "/office1.jpeg", alt: "Therapy office in Santa Monica" },
+    { src: "/office2.jpeg", alt: "Comfortable therapy space" },
+  ];
+
+  // Auto-slide office images every 5 seconds
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentOfficeImage((prev) => (prev + 1) % officeImages.length);
+    }, 5000);
+    return () => clearInterval(interval);
+  }, [officeImages.length]);
 
   const toggleFAQ = (index) => {
     setOpenFAQ(openFAQ === index ? null : index);
@@ -73,7 +87,7 @@ export default function Home() {
           )}
         </button>
 
-        <h2 className="text-xl sm:text-4xl font-medium text-primary-text">
+        <h2 className="text-xl sm:text-4xl font-semibold text-primary-text">
           Dr. Maya Reynolds
         </h2>
 
@@ -122,7 +136,7 @@ export default function Home() {
           />
         </div>
         <div className="flex flex-col items-center lg:text-center text-center space-y-4 sm:space-y-6 w-full px-4">
-          <h1 className="max-lg:text-4xl lg:text-[clamp(2.5rem,5vw,6.5rem)] font-medium text-primary-text leading-tight">
+          <h1 className="max-lg:text-4xl lg:text-[clamp(2.5rem,5vw,6.5rem)] font-bold text-primary-text leading-tight">
             <span className="whitespace-nowrap">Find calm in the</span>
             <br />
             <span className="whitespace-nowrap">chaos of anxiety</span>
@@ -144,7 +158,7 @@ export default function Home() {
         <div className="w-full md:w-1/2 px-6 sm:px-8 md:px-16 lg:px-24 pt-12 sm:pt-16 lg:pt-20 pb-0 flex flex-col justify-between order-2 md:order-1">
           <div className="flex-1 flex items-center">
             <div className="space-y-6">
-              <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-medium text-primary-text">
+              <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-semibold text-primary-text">
                 You're functional, but exhausted.
               </h2>
               <p className="text-primary-text leading-relaxed text-sm sm:text-base md:text-lg">
@@ -177,13 +191,13 @@ export default function Home() {
 
       {/* My services Section */}
       <section className="px-6 sm:px-8 md:px-16 lg:px-24 py-20 sm:py-24 lg:py-28">
-        <h2 className="text-4xl sm:text-5xl md:text-6xl font-medium text-primary-text text-center mb-12 sm:mb-16">
+        <h2 className="text-4xl sm:text-5xl md:text-6xl font-bold text-primary-text text-center mb-12 sm:mb-16">
           How I Can Help
         </h2>
         <div className="flex flex-wrap justify-start gap-6 md:gap-6 lg:gap-8">
           {/* Specialty 1 */}
           <div className="w-full sm:w-[calc(50%-0.75rem)] md:w-[calc(33.333%-1rem)] lg:w-[calc(33.333%-1.34rem)] flex flex-col space-y-6 bg-secondary-bg p-6 md:p-8 lg:p-10 border border-primary-text">
-            <h3 className="text-lg font-medium text-primary-text">
+            <h3 className="text-xl font-semibold text-primary-text">
               Anxiety & Panic
             </h3>
             <p className="text-sm text-primary-text leading-relaxed">
@@ -204,7 +218,7 @@ export default function Home() {
 
           {/* Service 2 */}
           <div className="w-full sm:w-[calc(50%-0.75rem)] md:w-[calc(33.333%-1rem)] lg:w-[calc(33.333%-1.34rem)] flex flex-col space-y-6 bg-secondary-bg p-6 md:p-8 lg:p-10 border border-primary-text">
-            <h3 className="text-lg font-medium text-primary-text">
+            <h3 className="text-xl font-semibold text-primary-text">
               Trauma & EMDR
             </h3>
             <p className="text-sm text-primary-text leading-relaxed">
@@ -226,7 +240,7 @@ export default function Home() {
 
           {/* Service 3 */}
           <div className="w-full sm:w-[calc(50%-0.75rem)] md:w-[calc(33.333%-1rem)] lg:w-[calc(33.333%-1.34rem)] flex flex-col space-y-6 bg-secondary-bg p-6 md:p-8 lg:p-10 border border-primary-text">
-            <h3 className="text-lg font-medium text-primary-text">
+            <h3 className="text-xl font-semibold text-primary-text">
               Burnout & Perfectionism
             </h3>
             <p className="text-sm text-primary-text leading-relaxed">
@@ -266,7 +280,7 @@ export default function Home() {
         <div className="w-full md:w-1/2 px-6 sm:px-8 md:px-16 lg:px-24 pt-12 sm:pt-16 lg:pt-20 pb-0 flex flex-col justify-between order-2 md:order-2">
           <div className="flex-1 flex items-center">
             <div className="space-y-6">
-              <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-medium text-primary-text">
+              <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-semibold text-primary-text">
                 Therapy that goes beyond symptom relief.
               </h2>
               <p className="text-primary-text leading-relaxed text-sm sm:text-base md:text-lg">
@@ -372,6 +386,77 @@ export default function Home() {
         </div>
       </section>
 
+      {/* Our Office Section */}
+      <section className="flex flex-col md:flex-row bg-accent-2 min-h-[600px] md:min-h-[700px] lg:min-h-[800px] xl:min-h-[900px]">
+        {/* Images Slider - comes first on mobile (order-1), right on desktop (order-2) */}
+        <div className="w-full md:w-1/2 order-1 md:order-2 relative flex items-center justify-center py-12 md:py-16">
+          <div className="relative w-full max-w-[280px] sm:max-w-[320px] md:max-w-[380px] lg:max-w-[420px] mx-auto">
+            {/* Image Slider */}
+            <div className="relative w-full aspect-[4/5] overflow-hidden rounded-3xl shadow-xl">
+              {officeImages.map((image, index) => (
+                <div
+                  key={index}
+                  className={`absolute inset-0 transition-opacity duration-1000 ${
+                    index === currentOfficeImage ? "opacity-100" : "opacity-0"
+                  }`}
+                >
+                  <Image
+                    src={image.src}
+                    alt={image.alt}
+                    fill
+                    sizes="(max-width: 640px) 280px, (max-width: 768px) 320px, (max-width: 1024px) 380px, 420px"
+                    className="object-cover"
+                  />
+                </div>
+              ))}
+            </div>
+
+            {/* Slider Indicators */}
+            <div className="flex justify-center gap-2 mt-6">
+              {officeImages.map((_, index) => (
+                <button
+                  key={index}
+                  onClick={() => setCurrentOfficeImage(index)}
+                  className={`h-2 rounded-full transition-all duration-300 ${
+                    index === currentOfficeImage
+                      ? "w-8 bg-secondary-text"
+                      : "w-2 bg-secondary-text opacity-40"
+                  }`}
+                  aria-label={`Go to slide ${index + 1}`}
+                />
+              ))}
+            </div>
+          </div>
+        </div>
+
+        {/* Text - comes second on mobile (order-2), left on desktop (order-1) */}
+        <div className="w-full md:w-1/2 px-6 sm:px-8 md:pl-16 md:pr-8 lg:pl-24 lg:pr-12 py-12 sm:py-16 lg:py-20 flex flex-col justify-center order-2 md:order-1">
+          <div className="space-y-6 md:space-y-8">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold text-secondary-text leading-tight">
+              A calm, grounding space designed for your healing
+            </h2>
+
+            <div className="space-y-3 sm:space-y-4 text-secondary-text text-sm sm:text-base md:text-lg">
+              <p>
+                <strong>In-Person Sessions:</strong> Experience therapy in a
+                warm, welcoming environment where you can fully focus on your
+                healing journey.
+              </p>
+              <p>
+                <strong>Telehealth Sessions:</strong> Secure online therapy
+                available for clients throughout California, offering the same
+                privacy and therapeutic connection.
+              </p>
+            </div>
+          </div>
+          <div className="flex justify-center mt-8 md:mt-12 mt-16">
+            <button className="border border-secondary-text text-secondary-text px-8 py-3 text-sm font-medium tracking-wider hover:bg-secondary-text hover:text-accent-2 transition-all duration-700 cursor-pointer flex items-center gap-2">
+              SCHEDULE A VISIT <ArrowRight className="w-4 h-4" />
+            </button>
+          </div>
+        </div>
+      </section>
+
       {/* FAQs Section */}
       <section className="flex flex-col md:flex-row bg-primary-bg min-h-[600px] md:min-h-[700px] lg:min-h-[850px] xl:min-h-[950px]">
         {/* Image - left side */}
@@ -390,7 +475,7 @@ export default function Home() {
         {/* FAQ Content - right side */}
         <div className="w-full md:w-1/2 px-6 sm:px-8 md:pl-4 md:pr-16 lg:pl-8 lg:pr-24 py-12 sm:py-16 lg:py-20 flex flex-col justify-center order-2 md:order-2">
           <div className="space-y-8 md:space-y-10 lg:space-y-12">
-            <h2 className="text-4xl sm:text-5xl md:text-5xl lg:text-6xl font-medium text-primary-text">
+            <h2 className="text-4xl sm:text-5xl md:text-5xl lg:text-6xl font-bold text-primary-text">
               FAQs
             </h2>
             <div className="space-y-0">
@@ -498,7 +583,7 @@ export default function Home() {
       <section className="bg-secondary-bg px-6 sm:px-8 md:px-16 lg:px-24 pt-20 sm:pt-24 lg:pt-28 pb-6 sm:pb-10 lg:pb-14 min-h-[450px] md:min-h-[550px]">
         <div className="max-w-3xl mx-auto">
           <div className="space-y-12 md:space-y-14 lg:space-y-16">
-            <h2 className="text-3xl sm:text-4xl md:text-4xl lg:text-5xl font-medium text-primary-text text-center">
+            <h2 className="text-3xl sm:text-4xl md:text-4xl lg:text-5xl font-bold text-primary-text text-center">
               My Professional Background
             </h2>
             <div className="space-y-0">
@@ -602,7 +687,7 @@ export default function Home() {
       {/* Get Started Section */}
       <section className="px-8 md:px-16 lg:px-24 py-24 md:py-32 lg:py-40 bg-accent-2 text-secondary-text">
         <div className="max-w-2xl mx-auto text-center space-y-8">
-          <h2 className="text-4xl md:text-5xl font-medium">
+          <h2 className="text-4xl md:text-5xl font-bold">
             Ready to feel more grounded?
           </h2>
           <p className="text-xl mt-8">
@@ -622,7 +707,7 @@ export default function Home() {
         <div className="max-w-8xl mx-auto">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-16 lg:gap-24 text-base text-primary-text">
             <div className="text-center md:text-left">
-              <h4 className="text-2xl sm:text-3xl lg:text-5xl font-medium mb-10">
+              <h4 className="text-2xl sm:text-3xl lg:text-5xl font-semibold mb-10">
                 Dr. Maya Reynolds, PsyD
               </h4>
               <p className="mb-1 text-xl">123th Street 45 W</p>
@@ -634,14 +719,14 @@ export default function Home() {
             </div>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-16 lg:gap-24">
               <div className="text-center md:text-right">
-                <h4 className="text-2xl sm:text-3xl lg:text-4xl font-medium mb-10">
+                <h4 className="text-2xl sm:text-3xl lg:text-4xl font-semibold mb-10">
                   Hours
                 </h4>
                 <p className="mb-1 text-xl">Monday – Friday</p>
                 <p className="text-xl">10am – 6pm</p>
               </div>
               <div className="text-center md:text-right">
-                <h4 className="text-2xl sm:text-3xl lg:text-4xl font-medium mb-10">
+                <h4 className="text-2xl sm:text-3xl lg:text-4xl font-semibold mb-10">
                   Find
                 </h4>
                 <p className="underline mb-1 text-xl">Home</p>
