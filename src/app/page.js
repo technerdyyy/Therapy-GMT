@@ -152,7 +152,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Live a Fulfilling Life Section */}
+      {/* CTA ONE Section */}
       <section className="flex flex-col md:flex-row bg-secondary-bg min-h-[500px] md:min-h-[550px] lg:min-h-[650px] xl:min-h-[800px]">
         {/* Text - comes second on mobile, left on desktop */}
         <div className="w-full md:w-1/2 px-6 sm:px-8 md:px-16 lg:px-24 pt-12 sm:pt-16 lg:pt-20 pb-0 flex flex-col justify-between order-2 md:order-1">
@@ -262,14 +262,14 @@ export default function Home() {
         </div>
       </section>
 
-      {/* You Don't Have to Do This Alone Section */}
+      {/* CTA TWO Section */}
       <section className="flex flex-col md:flex-row bg-accent-1 min-h-[500px] md:min-h-[550px] lg:min-h-[650px] xl:min-h-[800px]">
         {/* Image - comes first on mobile, left on desktop, covers full half width and height */}
         <div className="w-full md:w-1/2 order-1 md:order-1">
           <div className="relative w-full h-64 md:h-full min-h-[500px] md:min-h-[550px] lg:min-h-[650px] xl:min-h-[800px]">
             <Image
-              src="/cta-Two.jpg"
-              alt="Woman looking up"
+              src="/cta-two-woman.jpg"
+              alt="Woman journaling"
               fill
               sizes="(max-width: 768px) 100vw, 50vw"
               className="object-cover"
@@ -334,7 +334,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Hi I'm Maya Section */}
+      {/* ABOUT ME Section */}
       <section className="flex flex-col md:flex-row bg-secondary-bg min-h-[600px] md:min-h-[800px] lg:min-h-[900px] xl:min-h-[1000px]">
         {/* Images - comes first on mobile (order-1), right on desktop (order-2) */}
         <div className="w-full md:w-1/2 order-1 md:order-2 relative flex items-center justify-center py-12 md:py-16">
@@ -684,7 +684,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Get Started Section */}
+      {/* CTA THREE Section */}
       <section className="px-8 md:px-16 lg:px-24 py-24 md:py-32 lg:py-40 bg-accent-2 text-secondary-text">
         <div className="max-w-2xl mx-auto text-center space-y-8">
           <h2 className="text-4xl md:text-5xl font-bold">
