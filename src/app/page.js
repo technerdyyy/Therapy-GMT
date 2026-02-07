@@ -142,7 +142,7 @@ export default function Home() {
             <span className="whitespace-nowrap">chaos of anxiety</span>
           </h1>
           <p className="font-normal text-base sm:text-lg lg:text-xl text-primary-text tracking-wide">
-            <span className="whitespace-nowrap">
+            <span className="md:whitespace-nowrap">
               Anxiety & Trauma Therapy for Adults in Santa Monica, CA
             </span>
           </p>
